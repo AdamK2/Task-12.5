@@ -1,1 +1,12 @@
- 
+body {
+	background-color: #87CEEB;
+	text-align: center;
+	color: white;
+}
+.tweet {
+	color: white;
+}
+.trigger {
+	background-color: #87CEEB;
+	color: white;
+}
