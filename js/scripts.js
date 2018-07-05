@@ -1,3 +1,5 @@
+$.ajaxSetup({ cache: false });
+
 var prefix = "https://cors-anywhere.herokuapp.com/";
 // Stworzenie zmiennej ze standardowym linkiem do wysyłania tweetów na Twittera 
 var tweetLink = "https://twitter.com/intent/tweet?text=";
@@ -6,7 +8,7 @@ var quoteUrl = "https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&fi
 
 // Pobieranie cytatu
 function getQuote() {
-    $.getJSON(quoteUrl, createTweet);
+    $.getJSON(prefix + quoteUrl, createTweet);
 }
 
 // Tworzenie tweeta
@@ -36,11 +38,9 @@ function createTweet(input) {
 // Po zaladowaniu strony:
 $(document).ready(function() {
 	// Wygenerowanie cytatu
-    getQuote();
+    getQuote();	
 	// Podpięcie cytatu na element o klasie ".trigger" (nasłuchiwanie na zdarzenie kliknięcia, po którym ma się wykonać funkcja generująca cytat).
     $('.trigger').click(function() {
         getQuote();
-	$.getJSON(prefix + quoteUrl, createTweet);
-	$.ajaxSetup({ cache: false });	
-    })
+	})
 });
